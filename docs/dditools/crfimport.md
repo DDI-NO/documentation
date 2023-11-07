@@ -5,9 +5,8 @@ The OMR-CRF is a questionnaire that is generated using the [SDAPS](https://sdaps
 The CRF import functionality is available at the DDI Tools portal at `http://p96-podman:8181`, to access it, navigate to that address in the web browser and select "Import" item on the left navigation panel. 
 ![Import overview](../img/crf/import/import_overview.png)
 
-```
-ℹ️ The CRF import tool is compatible with CRF versions 4.6.0 and greater. Previous versions cannot be processed to extract the data and can only upload the associated scans with the CRF Split & Upload tool.
-```
+> ℹ️ The CRF import tool is compatible with CRF versions 4.6.0 and greater. Previous versions cannot be processed to extract the data and can only upload the associated scans with the CRF Split & Upload tool.
+
 
 ## How to import OMR CRFs into XNAT
 
