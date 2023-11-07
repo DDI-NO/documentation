@@ -8,6 +8,7 @@ The CRF import functionality is available at the DDI Tools portal at `http://p96
 ## How to import OMR CRFs into XNAT
 
 To import the CRF data and scanned documents into XNAT you need to follow a series of steps: 
+
 - Scanning the CRF.
 - Import the scan file into TSD.
 - Navigate to the import tool.
@@ -49,6 +50,6 @@ The app will provide feedback about the different steps and progress.
 ![CRF](../img/crf/import/progress.png)
 
 
-Once its finish, the app will provide a direct link to the subject to which the data was imported. OMR software is not infallible; SDAPS can make mistakes when deciding whether a checkbox is checked. Also, sometimes the person may have made a mistake when filling out the questionnaire. Therefore, it is very important to inspect the resulting data in XNAT that was set from the import process.
+Once it finishes, the app will provide a direct link to the subject to which the data was imported. OMR software is not infallible; SDAPS can make mistakes when deciding whether a checkbox is checked. Also, sometimes the person may have made a mistake when filling out the questionnaire. Therefore, it is very important to inspect the resulting data in XNAT that was set from the import process.
 
 ![CRF](../img/crf/import/complete.png)
