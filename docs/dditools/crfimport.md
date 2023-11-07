@@ -37,9 +37,7 @@ The tool will then ask for your XNAT credentials so it can import the recognized
 You can modify these items at anytime, hit enter to apply the changes. 
 
 #### CRF scan upload
-With the visit details, the app will show the file input for you to upload the scan file. 
-1. **Click** the "Browse files" button to choose a scanned CRF document in TIFF format.
-2. **Review** the page count and first page preview that appear after the file upload.
+With the visit details, the app will show the file input for you to upload the scan file. Click on the "Browse files" button to choose a scanned CRF document in TIFF format. The app will show a preview of the first page of the CRF and the detected page count.
 
 ![CRF](../img/crf/import/uploaded_crf.png)
 
