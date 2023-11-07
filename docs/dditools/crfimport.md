@@ -7,7 +7,12 @@ The CRF import functionality is available at the DDI Tools portal at `http://p96
 
 ## How to import OMR CRFs into XNAT
 
-To import the CRF data and scanned documents into XNAT you need to follow a series of steps: scanning the CRF, import the scan file into TSD, navigate to the import tool, provide the subject and visit data, and select the file uploaded in TSD for processing. 
+To import the CRF data and scanned documents into XNAT you need to follow a series of steps: 
+- Scanning the CRF.
+- Import the scan file into TSD.
+- Navigate to the import tool.
+- Provide the subject and visit data.
+- Select the file uploaded in TSD for processing. 
 
 ### Scanning the CRF
 SDAPS need a specific TIFF format file for it to process the optical mark recognition. The scanner must be set to 300 DPI black and white, multipage TIFF, compressed.
@@ -23,7 +28,7 @@ The tool will then ask for your XNAT credentials so it can import the recognized
 
 #### CRF visit details
 1. **Project**: Select the desired XNAT project from the dropdown list.
-2. **Subject**: Type in the subject identifier (the subject should already exist in the chosen project).
+2. **Subject**: Type in the subject identifier.
 3. **Visit Date**: Use the calendar tool to select the date of the assessment visit.
 4. **Assessment Visit**: Pick the type of assessment visit from the dropdown menu.
 
