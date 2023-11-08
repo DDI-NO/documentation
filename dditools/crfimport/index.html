@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>OMR-CRF Data Import - DDI documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "OMR-CRF Data Import";
+        var mkdocs_page_input_path = "dditools/crfimport.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> DDI documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Index</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">TSD</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tsd/tsdimport/">TSD File Import</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">CRF</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../crfsplit/">Scan Split & Upload</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">OMR-CRF Data Import</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-import-omr-crfs-into-xnat">How to import OMR CRFs into XNAT</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scanning-the-crf">Scanning the CRF</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#uploading-the-scan-file-into-tsd">Uploading the scan file into TSD</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#importing-the-crf-with-the-import-tool">Importing the CRF with the Import tool</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#xnat-login">XNAT login</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#crf-visit-details">CRF visit details</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#crf-scan-upload">CRF scan upload</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#process-and-review">Process and review</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">DDI documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">CRF</li>
+      <li class="breadcrumb-item active">OMR-CRF Data Import</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="omr-crf-import">OMR CRF Import</h1>
+<p>The OMR-CRF is a questionnaire that is generated using the <a href="https://sdaps.org/">SDAPS</a> software to enable Optical Mark Recognition. To process filled CRFs and import their data into XNAT, we have developed a tool that automates the different stages as much as possible.</p>
+<p>The CRF import functionality is available at the DDI Tools portal at <code>http://p96-podman:8181</code>, to access it, navigate to that address in the web browser and select "Import" item on the left navigation panel. 
+<img alt="Import overview" src="../../img/crf/import/import_overview.png" /></p>
+<blockquote>
+<p>ℹ️ The CRF import tool is compatible with CRF versions 4.6.0 and greater. Previous versions cannot be processed to extract the data and can only upload the associated scans with the CRF Split &amp; Upload tool.</p>
+</blockquote>
+<h2 id="how-to-import-omr-crfs-into-xnat">How to import OMR CRFs into XNAT</h2>
+<p>To import the CRF data and scanned documents into XNAT you need to follow a series of steps: </p>
+<ul>
+<li>Scanning the CRF.</li>
+<li>Import the scan file into TSD.</li>
+<li>Navigate to the import tool.</li>
+<li>Provide the subject and visit data.</li>
+<li>Select the file uploaded in TSD for processing. </li>
+</ul>
+<h3 id="scanning-the-crf">Scanning the CRF</h3>
+<p>SDAPS need a specific TIFF format file for it to process the optical mark recognition. The scanner must be set to 300 DPI black and white, multipage TIFF, compressed. </p>
+<blockquote>
+<p>⚠️
+<strong>THE ORDER AND NUMBER OF PAGES CANNOT BE ALTERED</strong>. SDAPS keeps a record of where the check marks are placed and expects the logical ordering. The pages from extra documents may be added after the CRF.</p>
+</blockquote>
+<h3 id="uploading-the-scan-file-into-tsd">Uploading the scan file into TSD</h3>
+<p>See the <a href="../../tsd/tsdimport/">TSD import user guide</a> for importing files in case of any doubts.</p>
+<h3 id="importing-the-crf-with-the-import-tool">Importing the CRF with the Import tool</h3>
+<p>Once you have the scan available in TSD, use the Firefox browser to navigate to <code>http://p96-podman:8181</code> and click on the <em>Import</em> item on the left navigation panel. </p>
+<h4 id="xnat-login">XNAT login</h4>
+<p>The tool will then ask for your XNAT credentials so it can import the recognized data and upload the documents into XNAT. Provide your username and password and hit enter. If the credentials are correct the app will ask for the details about the CRF vist. </p>
+<h4 id="crf-visit-details">CRF visit details</h4>
+<ol>
+<li><strong>Project</strong>: Select the desired XNAT project from the dropdown list.</li>
+<li><strong>Subject</strong>: Type in the subject identifier.</li>
+<li><strong>Visit Date</strong>: Use the calendar tool to select the date of the assessment visit.</li>
+<li><strong>Assessment Visit</strong>: Pick the type of assessment visit from the dropdown menu.</li>
+</ol>
+<p><img alt="Form Fields" src="../../img/crf/import/loggedin.png" /></p>
+<p>You can modify these items at anytime, hit enter to apply the changes. </p>
+<h4 id="crf-scan-upload">CRF scan upload</h4>
+<p>With the visit details, the app will show the file input for you to upload the scan file. Click on the "Browse files" button to choose a scanned CRF document in TIFF format. The app will show a preview of the first page of the CRF and the detected page count.</p>
+<p><img alt="CRF" src="../../img/crf/import/uploaded_crf.png" /></p>
+<h4 id="process-and-review">Process and review</h4>
+<p>You can now click on the <em>Process</em> button to start importing the CRF. The app will create the experiments and set their fields with the recognized marks from the CRF, and then split the different documents identified by QR codes and upload them into XNAT. </p>
+<p>The app will provide feedback about the different steps and progress. </p>
+<p><img alt="CRF" src="../../img/crf/import/progress.png" /></p>
+<p>Once it finishes, the app will provide a direct link to the subject to which the data was imported. OMR software is not infallible; SDAPS can make mistakes when deciding whether a checkbox is checked. Also, sometimes the person may have made a mistake when filling out the questionnaire. Therefore, it is very important to inspect the resulting data in XNAT that was set from the import process.</p>
+<p><img alt="CRF" src="../../img/crf/import/complete.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../crfsplit/" class="btn btn-neutral float-left" title="Scan Split & Upload"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../crfsplit/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

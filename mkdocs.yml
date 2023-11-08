@@ -1,0 +1,11 @@
+site_name: DDI documentation
+docs_dir: '.'
+site_dir: '../site'  # This will be a temporary build folder
+nav:
+    - Index: index.md
+    - TSD:
+      - 'TSD File Import': tsd/tsdimport.md
+    - CRF: 
+      - 'Scan Split & Upload': dditools/crfsplit.md
+      - 'OMR-CRF Data Import': dditools/crfimport.md
+theme: readthedocs
