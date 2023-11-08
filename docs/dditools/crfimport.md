@@ -19,7 +19,10 @@ To import the CRF data and scanned documents into XNAT you need to follow a seri
 - Select the file uploaded in TSD for processing. 
 
 ### Scanning the CRF
-SDAPS need a specific TIFF format file for it to process the optical mark recognition. The scanner must be set to 300 DPI black and white, multipage TIFF, compressed.
+SDAPS need a specific TIFF format file for it to process the optical mark recognition. The scanner must be set to 300 DPI black and white, multipage TIFF, compressed. 
+
+> ⚠️
+**THE ORDER AND NUMBER OF PAGES CANNOT BE ALTERED**. SDAPS keeps a record of where the check marks are placed and expects the logical ordering. The pages from extra documents may be added after the CRF.
 
 ### Uploading the scan file into TSD
 See the [TSD import user guide](../tsd/tsdimport.md) for importing files in case of any doubts.
